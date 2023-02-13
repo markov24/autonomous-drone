@@ -16,9 +16,12 @@ desired = np.array([640, 360])
 while True:
 	image = camera.Capture()
 	detections = np.array(net.Detect(image))
-	centerlist = np.zeros((detections.shape[0], 2))
-	for i in range(centerlist.shape[0]):
-		centerlist[i, :] = np.array(Detections[i].center)
+#	Loop Solution:
+# 	centerlist = np.zeros((detections.shape[0], 2))
+# 	for i in range(centerlist.shape[0]):
+# 		centerlist[i, :] = np.array(Detections[i].center)
+	func = np.vectorize(lambda x : x.center)
+	centerlist = np.apply_along_axis(func, 0, Detections).transpose()
 	current = np.average(centerlist, axis=0)
 	error = desired - current
 
