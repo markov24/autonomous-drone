@@ -1,6 +1,6 @@
-#include "videoSource.h"
-#include "videoOutput.h"
-#include "detectNet.h"
+#include <../jetson-utils/videoSource.h>
+#include <../jetson-utils/videoOutput.h>
+#include <../jetson-inference/detectNet.h>
 
 
 int main(int argc, char**argv){
