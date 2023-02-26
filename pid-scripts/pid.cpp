@@ -1,7 +1,6 @@
+#include <../jetson-inference/detectNet.h>
 #include <../jetson-utils/videoSource.h>
 #include <../jetson-utils/videoOutput.h>
-#include <../jetson-inference/detectNet.h>
-
 
 int main(int argc, char**argv){
     detectNet* net = detectNet::Create("/home/drone/autonomous-drone/models/box_custom/ssd-mobilenet.onnx", "/home/drone/autonomous-drone/models/box_custom_basic/labels.txt", "input_0", "scores", "boxes", 0.5f);
